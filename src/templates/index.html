@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <!-- <script src="{{ url_for('static', filename='main.js') }}"></script> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://unpkg.com/htmx.org@2.0.1" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/htmx-ext-json-enc@2.0.1/json-enc.js"></script>
+</head>
+
+<body>
+  <h1>Discord Newsletter Generator</h1>
+  <p>This tool will generate a newsletter based on the links sent in a Discord server.
+  <h2>How To Use</h2>
+  <h2>Add Channels</h2>
+  <div hx-get="/channels" hx-trigger="load">
+    Loading Channels...
+  </div>
+
+  <h2>Links</h2>
+  <form id="link-list" hx-post="/links" hx-swap="afterend">
+    <label for="description">Channel Description</label>
+    <textarea name="description" type="text">
+      The community archive is a public archive of Twitter/X tweets voluntarily submitted by users.
+      It seeks to enable normal people to study the dynamics of online social interactions. By 
+      creating a platform for this open data, it helps us to answer the following questions. How do 
+      ideas begin and spread? Who is responsible for the spread of ideas? How can we better protect
+      ourselves from coroporations and governments which seek to manipulate the collective
+      consciousness?
+    </textarea>
+    <button type="submit">Generate</button>
+  </form>
+</body>
+
+</html>

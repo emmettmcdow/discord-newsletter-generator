@@ -1,0 +1,13 @@
+<ul>
+  {% for channel in channels %}
+  <li>
+    <button hx-get="/links/{{ channel.id }}" hx-target="closest li" hx-indicator="#spinner-{{ channel.name }}"
+      hx-swap="outerHTML">
+      {{ channel.name }}
+    </button>
+    {% with name=channel.name %}
+    {% include "spinner.html" %}
+    {% endwith %}
+  </li>
+  {% endfor %}
+</ul>

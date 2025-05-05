@@ -1,0 +1,19 @@
+<div hx-swap-oob="afterbegin:#link-list">
+  <b>From {{ channel_name }}</b>
+  <ul>
+    {% if previews %}
+      {% for preview in previews %}
+      <li>
+        <a href="{{ preview.url }}"><b>{{ preview.title }}</b></a>
+        <br />
+        <img src="{{ preview.image }}" width="500" height="250" alt="Preview image for link to: {{ preview.title }}">
+        <p>{{ preview.description }}</p>
+        <a hx-swap="delete" hx-target="closest li" hx-get="" href="">Remove</a>
+        <input type="hidden" name="url-{{ channel_name }}-{{ loop.index }}" value="{{ preview.url }}"/>
+      </li>
+      {% endfor %}
+    {% else %}
+      <p> No links for this week </p>
+    {% endif %}
+  </ul>
+</div>
