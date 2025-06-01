@@ -1,8 +1,0 @@
-<h2> Prompt Preview </h2>
-<pre>
-  {{ prompt }}
-</pre>
-<form hx-post="/gemini" hx-swap="afterend">
-  <input type="hidden" name="prompt" value="{{ prompt }}"/>
-  <button type="submit">Generate Newsletter</button>
-</form>

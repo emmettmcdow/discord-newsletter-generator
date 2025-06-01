@@ -1,0 +1,27 @@
+<h2> Prompt Preview </h2>
+
+<div id="preview-container">
+  <pre class="truncated">
+    {{ prompt }}
+  </pre>
+  <span class="expand-btn" onclick="toggleExpand()">Show More</span>
+</div>
+
+<script>
+  function toggleExpand() {
+    const pre = document.querySelector('pre');
+    const btn = document.querySelector('.expand-btn');
+    if (pre.classList.contains('truncated')) {
+      pre.classList.remove('truncated');
+      btn.textContent = 'Show Less';
+    } else {
+      pre.classList.add('truncated');
+      btn.textContent = 'Show More';
+    }
+  }
+</script>
+
+<form hx-post="/gemini" hx-swap="afterend">
+  <input type="hidden" name="prompt" value="{{ prompt }}" />
+  <button type="submit">Generate Newsletter</button>
+</form>

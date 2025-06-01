@@ -1,0 +1,7 @@
+<div hx-swap-oob="afterbegin:#link-list">
+    {% for link in urls %}
+      {% with index=loop.index %}
+        {% include "lazy-link.html" %}
+      {% endwith %}
+    {% endfor %}
+</div>

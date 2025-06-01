@@ -1,0 +1,9 @@
+<div class="link-preview">
+  <a class="card-link" href="{{ preview.url }}">
+    <img src="{{ preview.image }}" alt="Preview image for link to: {{ preview.title }}" class="preview">
+    <p class="title">{{ preview.title }}</p>
+    <p class="description">{{ preview.description }}</p>
+  </a>
+  <a hx-swap="delete" hx-target="closest div" hx-get="" href="" class="delete-btn"></a>
+  <input type="hidden" name="url-{{ index }}" value="{{ preview.url }}" />
+</div>

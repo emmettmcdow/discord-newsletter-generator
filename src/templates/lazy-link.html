@@ -1,0 +1,5 @@
+<div hx-get="/link-preview" hx-vals='{"url": "{{ link }}", "index": "{{ index }}"}' hx-trigger="load"
+  hx-swap="outerHTML" hx-indicator="#spinner-{{ name }}">
+  Loading Link Preview...
+  <input type="hidden" name="url-new-{{ index }}" value="{{ link }}" />
+</div>

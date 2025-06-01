@@ -1,5 +1,7 @@
+import asyncio
 import logging
 import re
+import threading
 from datetime import datetime
 from typing import List
 
@@ -16,6 +18,20 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Regex to match URLs
 URL_REGEX = r'https?://[^\s<>"\']+|www\.[^\s<>"\']+'
+
+
+def run_bot(bot_loop: asyncio.AbstractEventLoop, token: str):
+    """
+    Runs the Discord bot in a separate thread with its own event loop.
+    """
+    asyncio.set_event_loop(bot_loop)
+    try:
+        bot_loop.run_until_complete(bot.start(token))
+    except Exception as e:
+        logging.error(f"Bot error: {str(e)}")
+    finally:
+        bot_loop.run_until_complete(bot.close())
+        bot_loop.close()
 
 
 async def get_channel_name(channel_id: int) -> str:
