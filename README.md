@@ -1,8 +1,12 @@
 # Discord Newsletter Generator
 This is a website which will generate a newsletter based on the links sent in a Discord server.
 
-## Demo
-> TODO: Add some gifs here
+## Workflow Example Demo
+> Note: this demo has been edited for brevity and clarity.
+
+[demo.webm](https://github.com/user-attachments/assets/52d4e11b-4f76-4883-8acf-ccb06d90915e)
+
+[Resulting HTML](/assets/example.html)
 
 ## Background
 ### The Problem
