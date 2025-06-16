@@ -157,7 +157,7 @@ def prompt():
 def gemini():
     prompt = request.form["prompt"]
     response = gemini_client.models.generate_content(
-        model="gemini-2.5-pro-exp-03-25",
+        model="gemini-2.5-pro-preview-06-05",
         contents=prompt,
     )
     return render_template("newsletter.html", contents=response.text)
